@@ -11,9 +11,31 @@ public class RoverDriver {
     }
 
     public String doThis(String seriousOfInstructions) {
-        if (seriousOfInstructions == "")
-            return position;
-        else
-            return position.charAt(0) + " " + position.charAt(2) + " S";
+        if (seriousOfInstructions != "") {
+            for (int travelThroughSeriousOfInstructions = 0; travelThroughSeriousOfInstructions < seriousOfInstructions.length(); travelThroughSeriousOfInstructions++) {
+                char newOrientation = doThisSingleInstruction(seriousOfInstructions.charAt(travelThroughSeriousOfInstructions));
+                position = position.substring(0, 4) + newOrientation;
+            }
+        }
+        return position;
+    }
+
+    private char doThisSingleInstruction(char instruction) {
+        if(instruction == 'L' || instruction == 'R') {
+            return getNewOrientation(instruction);
+        }
+        return ' ';
+    }
+
+    private char getNewOrientation(char instruction) {
+        char oldOrientation = this.position.charAt(4);
+        int referencePosition = "NESW".indexOf(oldOrientation);
+        if(instruction == 'L') {
+            if(--referencePosition < 0)
+                referencePosition +=4;
+        }
+        else if(++referencePosition > 3)
+            referencePosition -=4;
+        return "NESW".charAt(referencePosition);
     }
 }
