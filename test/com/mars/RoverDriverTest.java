@@ -32,4 +32,13 @@ public class RoverDriverTest {
 
         assertEquals("0 0 E", actualPosition);
     }
+
+    @Test
+    public void onlyMovesNoRotation() {
+        RoverDriver driver = new RoverDriver("1 2 N");
+
+        String actualPosition = driver.doThis("MM");
+
+        assertEquals("1 4 N", actualPosition);
+    }
 }
