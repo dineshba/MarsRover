@@ -15,4 +15,14 @@ public class RoverTest {
 
         assertEquals("5 5 N", actualPosition);
     }
+
+    @Test
+    public void roverDriverIsNotGivingAnyInstructionToRover() {
+        Rover rover = new Rover("5 5 N");
+
+        Rover roverReachedFinalPosition = rover.instructions("");
+        String actualPosition = roverReachedFinalPosition.getPosition();
+
+        assertEquals("5 5 N", actualPosition);
+    }
 }
