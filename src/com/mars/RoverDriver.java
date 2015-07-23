@@ -4,15 +4,16 @@ package com.mars;
 //RoverDriver will drive rover based on given initial position and instructions.
 public class RoverDriver {
 
-    private final String position;
+    private String position;
 
     public RoverDriver(String initialPosition) {
         this.position = initialPosition;
     }
 
-    public String doThis(String instructions) {
-        if(instructions == "")
+    public String doThis(String seriousOfInstructions) {
+        if (seriousOfInstructions == "")
             return position;
-        return "";
+        else
+            return position.charAt(0) + " " + position.charAt(2) + " S";
     }
 }

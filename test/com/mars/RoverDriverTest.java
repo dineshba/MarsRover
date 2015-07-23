@@ -15,4 +15,12 @@ public class RoverDriverTest {
         assertEquals("5 5 N", actualPosition);
     }
 
+    @Test
+    public void onlyChangeInOrientationOfRover() {
+        RoverDriver driver = new RoverDriver("0 0 N");
+
+        String actualPosition = driver.doThis("LL");
+
+        assertEquals("0 0 S", actualPosition);
+    }
 }
