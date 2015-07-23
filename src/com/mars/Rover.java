@@ -14,7 +14,7 @@ public class Rover {
 
     public Rover instructions(String instruction) {
         RoverDriver driver = new RoverDriver(this.getPosition());
-        this.position = driver.doThis(instruction);
+        position = driver.doThis(instruction);
         return this;
     }
 }
